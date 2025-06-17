@@ -1,7 +1,11 @@
+<div align="left">
+  <img src="assets/main_poster.webp" alt="Main poster of Online Auction System"/>
+</div>
+<br/>
+
 <h1 align="center">Online Auction System</h1>
 <p align="center">
 A Modular Java EE-Based Solution for Real-Time Bidding with Container-Managed Concurrency and Asynchronous Messaging</p>
-<br/>
 
 ## Introduction
 
