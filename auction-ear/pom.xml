@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>lk.jiat.auction</groupId>
+        <artifactId>Online-Auction_System</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>auction-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>auction-ear</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>lk.jiat.auction</groupId>
+            <artifactId>auction-web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>lk.jiat.auction</groupId>
+            <artifactId>auction-ejb</artifactId>
+            <version>1.0</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>lk.jiat.auction</groupId>
+            <artifactId>auction-core</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <finalName>${project.name}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <webModule>
+                            <groupId>lk.jiat.auction</groupId>
+                            <artifactId>auction-web</artifactId>
+                            <contextRoot>/online-auction</contextRoot>
+                            <bundleFileName>auction-web-module.war</bundleFileName>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>lk.jiat.auction</groupId>
+                            <artifactId>auction-ejb</artifactId>
+                            <bundleFileName>auction-ejb-module.jar</bundleFileName>
+                        </ejbModule>
+                        <jarModule>
+                            <groupId>lk.jiat.auction</groupId>
+                            <artifactId>auction-core</artifactId>
+                            <bundleFileName>auction-core-module.jar</bundleFileName>
+                        </jarModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
